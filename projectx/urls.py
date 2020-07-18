@@ -18,7 +18,7 @@ from django.urls import path
 from newsapp import views
 
 urlpatterns = [
-    path('secureplace/', admin.site.urls),
+    path('admin/', admin.site.urls),
     path('', views.login1, name='login1'),
     path('register/', views.register1, name='register'),
     path('news/',views.main, name='main'),

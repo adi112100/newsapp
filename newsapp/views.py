@@ -37,6 +37,7 @@ def main(request):
         
         if len(Sourcenews.objects.all())==0 or datetime.datetime.now().date() != sourcenews.date.date():
             update_sourcenews()
+            status="currently_updated"
 
         
         news=News.objects.all().first()

@@ -35,3 +35,25 @@ class News(models.Model):
 
     def __str__(self):
         return "daily_news"
+
+
+class Sourcenews(models.Model):
+    date = models.DateTimeField()
+    hindu = models.TextField()
+    gnews = models.TextField()
+    toi = models.TextField()
+    bloom = models.TextField()
+    buss =models.TextField()
+    fortune = models.TextField()
+    bbc = models.TextField()
+    espn = models.TextField()
+    foxsport = models.TextField()
+    natgeo  =models.TextField()
+    nextbig = models.TextField() 
+    tech = models.TextField()
+    newsci  = models.TextField()
+    mtv = models.TextField()
+    buzz = models.TextField()
+    mnt = models.TextField()
+
+

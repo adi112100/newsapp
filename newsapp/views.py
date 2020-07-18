@@ -11,17 +11,16 @@ import datetime
 from newsapi import NewsApiClient
 import requests
 import json
-# import ast
 
 from newsapp.models import Userinfo, News
 
 # Create your views here.
 status= "previously_updated"
-news = None
+news=None
 def main(request):
 
     api = NewsApiClient(api_key="37e0227c41fa4972a5bc0a6a871a62b8")
-    news = News.objects.all().first()
+    news=News.objects.all().first()
 
     if request.user.is_authenticated:
         if len(News.objects.all())==0:
@@ -31,11 +30,10 @@ def main(request):
         elif(datetime.datetime.now().date() != news.date.date()):
             updatenews()
             status="currently_updated"
-        
         else:
             status="previously_updated"
         
-        news = News.objects.all().first()
+        news=News.objects.all().first()
 
         indian_news= json.loads( news.indian_news )
         international_news= json.loads( news.international_news )
@@ -62,6 +60,7 @@ def main(request):
             status = "updated"
 
 
+        
         userinfo = Userinfo.objects.filter(username=username).first()
         state_news= json.loads(userinfo.state_news)
         city_news= json.loads(userinfo.city_news)
@@ -75,37 +74,29 @@ def main(request):
             "sharemarket_news": sharemarket_news, "bollywood_news": bollywood_news, "space_news": space_news, "corona_news": corona_news,
             "lifestyle_news": lifestyle_news, "motivation_news" : motivation_news ,"username": username}
             
-        return render(request, 'index.html', context)
-    
+        return render(request, 'index.html',context)
     else:
-        
         messages.warning(request, f"Oops! please login with your account")
         return redirect('/')
 
-
 def register1(request):
     if request.method == "POST":
-        
         form = NewUserForm(request.POST)
-        
         if form.is_valid():
-            name = request.POST['name']
             username = request.POST['username']
-            email = requests.POST['email']
             age = request.POST['age']
             state = request.POST['state']
             city = request.POST['city']
             gender =  request.POST['gender']
             profession = request.POST['profession']
             date = datetime.datetime.now().date()
-            key_words = [profession]
+            key_words= [profession]
             key_words = json.dumps(key_words)
-            userinfo = Userinfo(name=name, username=username, email=email, city=city, state=state, age=age, last_date=date, gender=gender, profession=profession, key_words = key_words)
+            userinfo = Userinfo(username=username, city=city, state=state, age=age, last_date=date, gender=gender, profession=profession, key_words = key_words)
             userinfo.save()
             form.save()
-            messages.success(request, "Registration succesful. Please login to your account!")
+            messages.success(request, "registration succesfull please login your account!!")
             return redirect('/')
-        
         else:
             username = request.POST['username']
             password1 = request.POST['password1']
@@ -117,9 +108,13 @@ def register1(request):
             else:
                 messages.warning(request, "Password criteria is not meet, please use strong password!!")
 
+
+
+
+
+
     form =NewUserForm
     return render(request, 'register.html', {"form":form})
-
 
 def login1(request):
     if request.user.is_authenticated:
@@ -138,7 +133,6 @@ def login1(request):
         
     form = AuthenticationForm()
     return render(request, 'login.html', {"form": form})
-
 
 def logout1(request):
     logout(request)
@@ -232,30 +226,3 @@ def  update_personalnews(username):
     
     userinfo.bestpick_news = json.dumps(news)
     userinfo.save()
-
-
-def getnews(request, keyword, title):
-
-    if (keyword == 'city'):
-        username = request.user.username
-        userinfo = Userinfo.objects.filter(username=username).first().city_news
-        userinfo = json.loads(userinfo)
-        
-        for item in userinfo:
-            if item['title'] == title:
-                news = item
-                break
-
-    # indian_news = json.loads( news.indian_news )
-    # international_news = json.loads( news.international_news )
-    # sport_news = json.loads( news.sport_news )
-    # business_news = json.loads( news.business_news )
-    # national_news = json.loads( news.national_news )
-    # sharemarket_news = json.loads( news.sharemarket_news )
-    # bollywood_news = json.loads( news.bollywood_news )
-    # space_news = json.loads( news.space_news )
-    # corona_news = json.loads( news.corona_news )
-    # lifestyle_news = json.loads( news.lifestyle_news )
-    # motivation_news = json.loads( news.motivation_news )
-
-    return render(request, 'news_page.html', context={"news":news})

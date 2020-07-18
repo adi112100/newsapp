@@ -3,9 +3,7 @@ from datetime import datetime
 # Create your models here.
 
 class Userinfo(models.Model):
-    name = models.CharField(max_length=100)
     username = models.CharField(max_length=100)
-    email = models.EmailField(max_length=100)
     city = models.CharField(max_length=100)
     state = models.CharField(max_length=100)
     age = models.IntegerField()

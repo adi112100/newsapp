@@ -4,229 +4,88 @@
 <html lang="en">
 
 <head>
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <link rel="icon" href="{% static 'img/webicon.png' %}" type="image/icon type">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    
-    <link href="{% static 'css/style.css' %}" rel="stylesheet">    
-
-    <title>Register</title>
-    
-
-    <style type="text/css">
-        
-        * {
-            margin: 0px;
-            padding: 0px;
-            background-origin: padding-box;
+    <title>register</title>
+    <style>
+        .sty
+        {
+            padding: 5px 2px 5px 2px;
+            margin: 5px;
+            border: 1px solid rgba(129, 129, 129, 0.623);
+            border-radius: 5px;
+            font-size: medium;
         }
-
-        body {
-            background-color: #fafafa;
-            max-width: 100%;
-        }
-
-        .main {
-            max-width: 90%;
-            margin: 0 auto;
-            margin-top: 2%;
-            margin-bottom: 5%;
-        }
-
-        .heading {
-            font-weight: 600;
-            font-size: 300%;
-        }
-
-        .sub-heading {
-            font-size: 150%;
-        }
-
-        .lead {
-            font-weight: 400;
-        }
-
-        .loginform { 
-            text-align: center;
-            margin: 0 auto;
-            background-color: white;
-            border: 1px solid rgba(var(--b6a,219,219,219),1);
-            border-radius: 2px;
-            /*margin-left: %;*/
-        }
-
-        img {
-            max-width:100%;
-            height:auto;
-        }
-
-        input[type=text], input[type=password], input[type=email], input[type=number], .select { 
-            width: 70%; 
-            margin: 8px 0; 
-            display: inline-block; 
-            border: 1px solid #ccc; 
-            box-sizing: border-box; 
-        } 
-
-        .text-muted {
-            max-width: 70%;
-            margin: 0 auto;
-        }
-
-        h6 {
-           width: 100%; 
-           text-align: center; 
-           border-bottom: 1px solid #000; 
-           line-height: 0.1em;
-           margin: 10px 0 20px; 
-        } 
-
-        h6 span { 
-            background:#fff; 
-            padding:0 10px; 
-        }
-
     </style>
-
 </head>
 
 <body>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h3 class="display-4" style="font-weight: 600;">Register New User</h3>
+            <p class="lead">Please login instead if you already registerted!!.</p>
+        </div>
+    </div>
 
-    <div class="container main">
-        <div class="row">
-            <div class="col-sm-6">
 
-                <div class="jumbotron text-center">
-                    <h1 class="heading"> Welcome to Daily News!! </h1>
-                    <p class="sub-heading">News Personalized Just For You!</p>
-                </div>
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-warning {{ message.tags }} alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    {% endfor %}
+    {% endif %}
 
-                <p class="lead">
-                    We will provide you personalized news feed using Machine Learning and Artificial Intelligence.
-                    <br><br> We try to enhance your user experience with no ads and spams.
-                    <br><br> Based on your valuable information and feedback we cluster your news feed in various category to save your precious time and ensure all the latest news are being shown.
-                </p>
 
-                {% if messages %}
-                {% for message in messages %}
-                <div class="alert alert-warning {{ message.tags }} alert-dismissible fade show" role="alert">
-                    {{ message }}
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                {% endfor %}
-                {% endif %}
-
-            </div>
-
-            <div class="col-sm-5 loginform">
-                
-                <img class="card-title" src="{% static 'img/logo.png' %}">
-                
-                <h2>Register</h2>
-                <p class="card-title">Please fill the form correctly to customize news feed for you!</p>
+    <div class="container">
+        <div class="card" style="width: 100%;">
+            <div class="card-body">
+                <h5 class="card-title">Please fill the form correctly to customize news feed for you!!</h5>
                 <br>
 
                 <form action="" method="post">
                     {% csrf_token %}
-                    {{ form | crispy }}
+                    {{form|crispy}}
                     <br>
                     <div class="form-group">
                         <input type="hidden" name="country" id="countryId" value="IN" />
                         <div class="form-group">
-                            <select name="state" class="states order-alpha sty" id="stateId" required > 
-                                <option value="">Select State</option>
-                            </select>
-                            <select name="city" class="cities order-pop limit-pop-50000 sty" id="cityId" required >
-                                <option value="">Select City</option>
-                            </select>
-                            <br>
-                            <p style="font-size: small; color: gray; padding: 2px; margin: 0 auto; max-width: 70%; margin-top: 2%;"> If your city is not mentioned in the form, please select one which is closer to you.</p>
-                        </div>
+                        <select name="state" class="states order-alpha sty" id="stateId" required > 
+                            <option value="">Select State</option>
+                        </select>
+                        <select name="city" class="cities order-pop limit-pop-50000 sty" id="cityId" required >
+                            <option value="">Select City</option>
+                        </select>
                         <br>
-                        <input type="submit" class="btn btn-success" style="margin: auto;" value="Register">
-                        <br><br>
+                        <p style="font-size: small; color: gray; padding: 2px; margin-left: 2px ;"> If your city not mentioned in the form please select one which is closer to you!!</p>
                     </div>
+                    <br>
+                    <button type="submit" class="btn btn-success" style="margin: auto;">Register</button>
                 </form>
-
-                <h6><span>OR</span></h6><br>
-
-                <h5 class="card-title">Already have an account? 
-                    <span> 
-                        <a href="/">Login</a> 
-                    </span> 
-                </h5>
-                <br>
-
-            </div>
-
-        </div>
-    
-    </div>
-
-
-    <footer id="footer">
-        <div class="footer-top">
-            <div class="container">
-                <div class="row">
-
-                    <div class="col-lg-3 col-md-6 footer-info">
-                        <h3>Daily News</h3>
-                        <p> We use machine learning algorithm to provide news feed which best suites your profile.</p>
-                    </div>
-
-                    <div class="col-lg-3 offset-md-6 col-md-6 footer-contact" style="float: right;">
-                        <h4>Contact Us</h4>
-                        <p>
-                            Chitnis Nagar <br>
-                            Ramnamaroti Road Nagpur<br>
-                            India <br>
-                            <strong>Phone:</strong> +91 9834312906<br>
-                            <strong>Email:</strong> asmaffiliate101@gmail.com<br>
-                        </p>
-
-                        <!-- <div class="social-links">
-                          <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-                          <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-                          <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
-                          <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
-                          <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
-                      </div> -->
-
-                    </div>
-
-                </div>
             </div>
         </div>
 
-        <div class="container">
-            <br>
-            <div class="credits" style="font-size: 25px;">
-                Designed by <a href="https://adityamorankar.herokuapp.com/" target="_blank">Aditya Morankar</a> & <a href="http://rishabhrathi.co/" target="_blank">Rishabh Rathi</a>
-            </div>
-        
-        </div>
-    
-    </footer><!-- #footer -->
 
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-        crossorigin="anonymous"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="//geodata.solutions/includes/statecity.js"></script>
 
+
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+            integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+            crossorigin="anonymous"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="//geodata.solutions/includes/statecity.js"></script>
 </body>
 
 </html>

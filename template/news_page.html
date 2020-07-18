@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		{{ news.title}}
+	</title>
+</head>
+<body>
+
+	<h1>{{ news.title }}</h1>
+
+	<img src="{{ news.urlToImage }}"/>
+	<p> {{ news.author }} </p>
+	<p> {{ news.source.name }} </p>
+	<p>
+		{{ news.content }}
+	</p>
+
+</body>
+</html>

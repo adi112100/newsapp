@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <title>Search</title>
+</head>
+<style>
+     @media only screen and (max-width: 1000px) {
+         .box
+         {
+             width:90%;
+         }
+     }
+     @media only screen and (min-width: 1000px) {
+         .box
+         {
+             width:50%;
+         }
+     }
+</style>
+
+<body>
+   
+    <div class="jumbotron">
+        <h1 class="display-4">Searched News</h1>
+        <p class="lead">This is a top results of your search picked from 1000+ sources.</p>
+        <hr class="my-4">
+        <p>key values of your search {{list}}</p>
+        
+        <a href="/" class="btn btn-success btn-lg" role="button"><i class="fas fa-home"></i> Home</a>
+      </div>
+    <div class="container-fluid" align="center">
+       
+        <div class="box">
+            {% for news in search_news %}
+            <div class="card shadow p-3 mb-5 bg-white rounded">
+                {% if news.urlToImage != None %}
+                <img class="card-img-top" src="{{news.urlToImage}}" alt="Card image cap">
+                {% endif %}
+                <div class="card-body">
+                    <h1 class="card-title" style="font-size: larger; color: rgba(0, 0, 0, 0.932);">{{ news.title }}</h1>
+                    <h5 class="card-title" style="font-size: medium;">by - {{ news.author }}</h5>
+                    <p style="font-size: small;">{{ news.description }}</p>
+                    <a href="{{ news.url }}" class="btn btn-success">explore</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/8a6b92cc3d.js" crossorigin="anonymous"></script>
+</body>
+
+</html>

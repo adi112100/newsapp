@@ -9,7 +9,8 @@
   <meta content="" name="keywords">
   <meta content="" name="description">
 
-  <link rel="icon" href="{% static 'img/webicon.png' %}" type="image/icon type">
+  <!-- Favicons -->
+  <link href="{% static 'img/favicon.png' %}" rel="icon">
 
   <!-- swiper css -->
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
@@ -33,66 +34,78 @@
   <link href="{% static 'css/style.css' %}" rel="stylesheet">
 
 
-  <style>
-    * {
-      margin: 0px;
-      padding: 0px;
-      background-origin: padding-box;
-    }
-
-    #portfolio {
-      max-width: 90%;
-      margin: 0 auto;
-    }
-
-    .cta-btn:hover {
-      cursor: pointer;
-    }
-
-    @media only screen and (min-width: 900px) {
-
-      .card {
-        width: 50%;
-        margin: 10px 1px 10px 1px;
-        height: fit-content;
-      }
-
-      .logoss img {
-        width: 50%;
-      }
-    }
-
-    /* style="width: 100%; border: 1px currentColor; margin: 10px 1px 10px 1px; height: fit-content;" */
-    @media only screen and (max-width: 900px) {
-
-      .card {
-        width: 100%;
-        height: fit-content;
-        margin: 10px 1px 10px 1px;
-      }
-
-      .box {
-        width: 90%;
-        height: 700px;
-        overflow: auto;
-      }
-
-      .logoss img {
-        width: 100%;
-      }
-
-    }
-
-
-  </style>
-
+  <!-- =======================================================
+    Credit
+    Theme Name: BizPage
+    Theme URL: https://bootstrapmade.com/bizpage-bootstrap-business-template/
+    Author: BootstrapMade.com
+    License: https://bootstrapmade.com/license/
+  ======================================================= -->
 </head>
+
+<style>
+  * {
+    margin: 0px;
+    padding: 0px;
+    background-origin: padding-box;
+  }
+
+
+
+
+
+  @media only screen and (min-width: 900px) {
+
+    .card {
+      width: 50%;
+      margin: 10px 1px 10px 1px;
+      height: fit-content;
+    }
+
+    .logoss img {
+      width: 50%;
+    }
+  }
+
+  /* style="width: 100%; border: 1px currentColor; margin: 10px 1px 10px 1px; height: fit-content;" */
+  @media only screen and (max-width: 900px) {
+
+    .card {
+      width: 100%;
+      height: fit-content;
+      margin: 10px 1px 10px 1px;
+    }
+
+
+
+    .box {
+      width: 90%;
+      height: 700px;
+      overflow: auto;
+
+    }
+
+    .logoss img {
+      width: 100%;
+    }
+
+
+
+
+
+  }
+</style>
 
 <body>
 
   <!-- loader screen -->
+
+
   <div id="preloader">
   </div>
+
+
+
 
   <!--==========================
     Header
@@ -111,9 +124,10 @@
         <ul class="nav-menu">
           <li class="menu-active"><a href="#intro">Home</a></li>
           <li><a href="#portfolio">News</a></li>
-          <li><a href="#sources">Sources</a></li>
+          <li class="menu-has-children"><a href="/logout/">Logout</a>
+
+          </li>
           <li><a href="#facts">Contact</a></li>
-          <li class=""><a href="/logout/">Logout</a></li>
         </ul>
       </nav><!-- #nav-menu-container -->
     </div>
@@ -131,17 +145,6 @@
         <div class="carousel-inner" role="listbox">
 
           <div class="carousel-item active">
-            <div class="carousel-background"><img src="{% static 'img/intro-carousel/1.jpg' %}" alt=""></div>
-            <div class="carousel-container">
-              <div class="carousel-content">
-                <h3>Stream Live News Channel !!</h3>
-                <p></p>
-                <a href="https://www.indiatoday.in/livetv" class="btn-get-started scrollto">Watch Now</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="carousel-item">
             <div class="carousel-background"><img src="{%static 'img/intro-carousel/3.jpg' %}" alt=""></div>
             <div class="carousel-container">
               <div class="carousel-content">
@@ -151,6 +154,8 @@
               </div>
             </div>
           </div>
+
+
 
           <div class="carousel-item">
             <div class="carousel-background"><img src="{%static 'img/intro-carousel/2.jpg' %}" alt=""></div>
@@ -162,6 +167,31 @@
               </div>
             </div>
           </div>
+
+
+          <div class="carousel-item">
+            <div class="carousel-background"><img src="{% static 'img/intro-carousel/1.jpg' %}" alt=""></div>
+            <div class="carousel-container">
+              <div class="carousel-content">
+                <h3>Search Recommended News</h3>
+                <p></p>
+                <a href="#search" class="btn-get-started scrollto">Lets Go</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <div class="carousel-background"><img src="{% static 'img/intro-carousel/2.jpg' %}" alt=""></div>
+            <div class="carousel-container">
+              <div class="carousel-content">
+                <h3>Stream Live News Channel !!</h3>
+                <p></p>
+                <a href="https://www.indiatoday.in/livetv" class="btn-get-started scrollto">Watch Now</a>
+              </div>
+            </div>
+          </div>
+
+
 
         </div>
 
@@ -181,6 +211,9 @@
 
   <main id="main">
 
+
+
+
     <!--==========================
       Call To Action Section
     ============================-->
@@ -194,21 +227,21 @@
           <div class="swiper-container1" style="width: 100%; overflow: hidden;">
             <div class="swiper-wrapper">
               <div class="swiper-slide"><a class="cta-btn" button type="button" data-toggle="modal"
-                  data-target="#bollywood">Bollywood</a></div>
+                  data-target="#exampleModalLong">Bollywood</a></div>
               <div class="swiper-slide"><a class="cta-btn" button type="button" data-toggle="modal"
-                  data-target="#space">Space</a></div>
+                  data-target="#exampleModalLong1">Space</a></div>
               <div class="swiper-slide"><a class="cta-btn" button type="button" data-toggle="modal"
-                  data-target="#corona">Corona</a></div>
+                  data-target="#exampleModalLong2">Corona</a></div>
               <div class="swiper-slide"><a class="cta-btn" button type="button" data-toggle="modal"
-                  data-target="#lifestyle">Lifestyle</a></div>
+                  data-target="#exampleModalLong3">Lifestyle</a></div>
               <div class="swiper-slide"><a class="cta-btn" button type="button" data-toggle="modal"
-                  data-target="#motivation">Motivation</a></div>
+                  data-target="#exampleModalLong4">Motivation</a></div>
             </div>
             <!-- Add Pagination -->
             <div class="swiper-pagination" style="bottom: 60px;"></div>
           </div>
 
-<!--           <div class="col-4 col-lg-4" align="center"><a class="cta-btn" href="#">Corona Cases</a></div>
+          <!-- <div class="col-4 col-lg-4" align="center"><a class="cta-btn" href="#">Corona Cases</a></div>
           <div class="col-4 col-lg-4" align="center"><a class="cta-btn" href="#">Entertainment</a></div>
           <div class="col-4 col-lg-4" align="center"><a class="cta-btn" href="#">Food</a></div>
           <div class="col-4 col-lg-4" align="center"><a class="cta-btn" href="#">Travel</a></div>
@@ -221,12 +254,13 @@
     </section><!-- #call-to-action -->
 
 
-    <div class="modal fade" id="bollywood" tabindex="-1" role="dialog" aria-labelledby="bollywoodTitle"
+
+    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
       aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="bollywoodTitle">Bollywood News</h5>
+            <h5 class="modal-title" id="exampleModalLongTitle">Bollywood News</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -236,22 +270,14 @@
             {% for news in bollywood_news %}
             <div class="card shadow p-3 mb-5 bg-white rounded"
               style="width: 100%; border: 1px currentColor; margin: 10px 1px 10px 1px; height: fit-content;">
-              
               {% if news.urlToImage != None %}
               <img class="card-img-top" src="{{news.urlToImage}}" alt="Card image cap" loading="lazy">
               {% endif %}
-              
               <div class="card-body">
-                
                 <h1 class="card-title" style="font-size: larger; color: rgba(0, 0, 0, 0.932);">{{ news.title }}</h1>
-
-                {% if news.author != None %}
                 <h5 class="card-title" style="font-size: medium;">by - {{ news.author }}</h5>
-                {% endif %}
-
                 <p style="font-size: small;">{{ news.description }}</p>
-                <a href="{{ news.url }}" class="btn btn-success" target="_blank">Read More</a>
-              
+                <a href="{{ news.url }}" class="btn btn-success">explore</a>
               </div>
             </div>
             {% endfor %}
@@ -261,12 +287,12 @@
       </div>
     </div>
 
-    <div class="modal fade" id="space" tabindex="-1" role="dialog" aria-labelledby="bollywoodTitle"
+    <div class="modal fade" id="exampleModalLong1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
       aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="bollywoodTitle">Space News</h5>
+            <h5 class="modal-title" id="exampleModalLongTitle">Space News</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -276,22 +302,14 @@
             {% for news in space_news %}
             <div class="card shadow p-3 mb-5 bg-white rounded"
               style="width: 100%; border: 1px currentColor; margin: 10px 1px 10px 1px; height: fit-content;">
-              
               {% if news.urlToImage != None %}
               <img class="card-img-top" src="{{news.urlToImage}}" alt="Card image cap" loading="lazy">
               {% endif %}
-
               <div class="card-body">
-                
                 <h1 class="card-title" style="font-size: larger; color: rgba(0, 0, 0, 0.932);">{{ news.title }}</h1>
-                
-                {% if news.author != None %}
                 <h5 class="card-title" style="font-size: medium;">by - {{ news.author }}</h5>
-                {% endif %}
-
                 <p style="font-size: small;">{{ news.description }}</p>
-                <a href="{{ news.url }}" class="btn btn-success" target="_blank">Read More</a>
-
+                <a href="{{ news.url }}" class="btn btn-success">explore</a>
               </div>
             </div>
             {% endfor %}
@@ -301,12 +319,12 @@
       </div>
     </div>
 
-    <div class="modal fade" id="corona" tabindex="-1" role="dialog" aria-labelledby="bollywoodTitle"
+    <div class="modal fade" id="exampleModalLong2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
       aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="bollywoodTitle">Corona News</h5>
+            <h5 class="modal-title" id="exampleModalLongTitle">Corona News</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -316,22 +334,14 @@
             {% for news in corona_news %}
             <div class="card shadow p-3 mb-5 bg-white rounded"
               style="width: 100%; border: 1px currentColor; margin: 10px 1px 10px 1px; height: fit-content;">
-              
               {% if news.urlToImage != None %}
               <img class="card-img-top" src="{{news.urlToImage}}" alt="Card image cap" loading="lazy">
               {% endif %}
-              
               <div class="card-body">
-                
                 <h1 class="card-title" style="font-size: larger; color: rgba(0, 0, 0, 0.932);">{{ news.title }}</h1>
-                
-                {% if news.author != None %}
                 <h5 class="card-title" style="font-size: medium;">by - {{ news.author }}</h5>
-                {% endif %}
-                
                 <p style="font-size: small;">{{ news.description }}</p>
-                <a href="{{ news.url }}" class="btn btn-success" target="_blank">Read More</a>
-              
+                <a href="{{ news.url }}" class="btn btn-success">explore</a>
               </div>
             </div>
             {% endfor %}
@@ -342,12 +352,12 @@
     </div>
 
 
-    <div class="modal fade" id="lifestyle" tabindex="-1" role="dialog" aria-labelledby="bollywoodTitle"
+    <div class="modal fade" id="exampleModalLong3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
       aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="bollywoodTitle">Lifestyle News</h5>
+            <h5 class="modal-title" id="exampleModalLongTitle">Lifestyle News</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -362,11 +372,9 @@
               {% endif %}
               <div class="card-body">
                 <h1 class="card-title" style="font-size: larger; color: rgba(0, 0, 0, 0.932);">{{ news.title }}</h1>
-                {% if news.author != None %}
                 <h5 class="card-title" style="font-size: medium;">by - {{ news.author }}</h5>
-                {% endif %}
                 <p style="font-size: small;">{{ news.description }}</p>
-                <a href="{{ news.url }}" class="btn btn-success" target="_blank">Read More</a>
+                <a href="{{ news.url }}" class="btn btn-success">explore</a>
               </div>
             </div>
             {% endfor %}
@@ -376,12 +384,12 @@
       </div>
     </div>
 
-    <div class="modal fade" id="motivation" tabindex="-1" role="dialog" aria-labelledby="bollywoodTitle"
+    <div class="modal fade" id="exampleModalLong4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
       aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="bollywoodTitle">Motivational News</h5>
+            <h5 class="modal-title" id="exampleModalLongTitle">Motivational News</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -396,11 +404,9 @@
               {% endif %}
               <div class="card-body">
                 <h1 class="card-title" style="font-size: larger; color: rgba(0, 0, 0, 0.932);">{{ news.title }}</h1>
-                {% if news.author != None %}
                 <h5 class="card-title" style="font-size: medium;">by - {{ news.author }}</h5>
-                {% endif %}
                 <p style="font-size: small;">{{ news.description }}</p>
-                <a href="{{ news.url }}" class="btn btn-success" target="_blank">Read More</a>
+                <a href="{{ news.url }}" class="btn btn-success">explore</a>
               </div>
             </div>
             {% endfor %}
@@ -411,23 +417,20 @@
     </div>
 
 
-    <div class="container-fluid" style="background-color: #f7f7f7;">
+    <div id="search" class="container-fluid" style="background-color: #f7f7f7;">
       <br>
-      <form class="row" method="post" action="/search/">
-        
-          {% csrf_token %}
-          <div class="col-8 offset-1 col-sm-8 offset-sm-1 col-md-3 offset-md-7 col-lg-3 offset-lg-7">
-            
-            <input type="text" class="form-control" name="search" placeholder="Search for news here..." style="padding: 15px;" required>
-          
-          </div>
-          
-          <div class="col-3 col-sm-3 col-md-1 col-lg-1">
-            <button type="submit" class="btn btn-dark"
-              style="border-radius: 20px; border: 2px solid white; background-color: rgb(36, 36, 36); padding: 10px 20px 10px 20px;">Search</button>
-          
-          </div>
-        
+      <form class="row" style="padding-left: 10px;" method="post" action="/search/">
+
+        {% csrf_token %}
+        <div class="col-8 col-sm-8 col-md-4 col-lg-3">
+          <input type="text" class="form-control" name="search" placeholder="search for news here...."
+            style="padding: 15px;" required>
+        </div>
+        <div class="col-3 col-sm-3 col-md-4 col-lg-4">
+          <button type="submit" class="btn btn-dark"
+            style="border-radius: 20px; border: 2px solid white; background-color: rgb(36, 36, 36); padding: 10px 20px 10px 20x;">Search</button>
+        </div>
+
       </form>
     </div>
 
@@ -441,35 +444,115 @@
         <header class="section-header">
           <h3 class="section-title wow fadeIn">Recommended News</h3>
           <h2 class="section-title wow fadeIn" style="text-align: center;"> Swipe left and right </h2>
-          <h6 class="section-title wow fadeIn" style="font-size: small; text-align: center;"> Last updated - {{lastupdated}} </h6>
-            <!-- <br> status - {{status}}</h6> -->
+          <h6 class="section-title wow fadeIn" style="font-size: small; ">last updated - {{lastupdated}} <br> status -
+            {{status}}</h6>
         </header>
 
-        <div class="swiper-container mydata" align="center">
+        <div class="swiper-container" align="center">
 
           <div class="swiper-pagination" style="top: 0px; pointer-events: none;"></div>
           <div class="swiper-wrapper">
 
             <div class="swiper-slide wow fadeIn">
               <br>
+              <h5>Best picked Sources</h5>
+              <div class="box">
+                <div class="container-fluid">
+                  <h2 style="text-align: center;">Regional</h2>
+                  <div class="row align-items-center">
+                    <div class="col-4 col-lg-4 logoss centered mx-auto"><img src="{% static 'logo/thehindu.jpg' %}"
+                        alt=""></div>
+                    <div class="col-4 col-lg-4 logoss centered mx-auto"><img src="{% static 'logo/gnews.jpg' %}" alt="">
+                    </div>
+                    <div class="col-4 col-lg-4 logoss centered mx-auto"><img src="{% static 'logo/toi.jpg' %}" alt="">
+                    </div>
 
-              <h2>Best picked news for you!!</h2>
-              
+                  </div>
+                  <br><br><br>
+                  <h2 style="text-align: center;">Bussiness</h2>
+                  <div class="row align-items-center">
+                    <div class="col-4 col-lg-4 logoss centered mx-auto"><img src="{% static 'logo/bloomberg.png' %}"
+                        alt=""></div>
+                    <div class="col-4 col-lg-4 logoss centered mx-auto"><img src="{% static 'logo/buss.png' %}" alt="">
+                    </div>
+                    <div class="col-4 col-lg-4 logoss centered mx-auto"><img src="{% static 'logo/fortune.png' %}"
+                        alt=""></div>
+                  </div>
+                  <br><br><br>
+                  <h2 style="text-align: center;">Sports</h2>
+                  <br>
+                  <div class="row align-items-center">
+                    <div class="col-4 col-lg-4 logoss centered mx-auto"><img src="{% static 'logo/bbcsport.png' %}"
+                        alt=""></div>
+
+                    <div class="col-4 col-lg-4 logoss centered mx-auto"><img src="{% static 'logo/espn.png' %}" alt="">
+                    </div>
+                    <div class="col-4 col-lg-4 logoss centered mx-auto"><img src="{% static 'logo/foxsport.png' %}" alt="">
+                    </div>
+
+                  </div>
+                  <br><br><br>
+                  <h2 style="text-align: center;">Science/Tech</h2>
+                  <div class="row align-items-center">
+                    <div class="col-4 col-lg-4 logoss centered mx-auto"><img src="{% static 'logo/natgeo.png' %}"
+                        alt="">
+                    </div>
+                    <div class="col-4 col-lg-4 logoss centered mx-auto"><img src="{% static 'logo/nextbig.png' %}"
+                        alt=""></div>
+                    <div class="col-4 col-lg-4 logoss centered mx-auto"><img src="{% static 'logo/techradar.png' %}"
+                        alt=""></div>
+
+
+                  </div>
+                  <br>
+                  <div class="row align-items-center">
+                    <div class="col-4 col-lg-4 logoss centered mx-auto"><img src="{% static 'logo/newscientist.jpg' %}"
+                        alt="">
+                    </div>
+
+
+                  </div>
+                  <br><br><br>
+                  <h2 style="text-align: center;">Entertainment</h2>
+                  <div class="row align-items-center">
+                    <div class="col-4 col-lg-4 logoss centered mx-auto"><img src="{% static 'logo/mtv.png' %}" alt="">
+                      <div class="col-4 col-lg-4 logoss centered mx-auto"><img src="{% static 'logo/buzzfeed.jpg' %}"
+                          alt=""></div>
+                    </div>
+                  </div>
+
+                  <br><br><br>
+                  <h2 style="text-align: center;">Health Care</h2>
+                  <div class="row align-items-center">
+                    <div class="col-4 col-lg-4 logoss centered mx-auto"><img src="{% static 'logo/mnt.jpg' %}" alt="">
+                     
+                    </div>
+                  </div>
+
+
+
+
+
+
+
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide wow fadeIn">
+              <br>
+              <h5>Best picked news for you!!</h5>
               <div class="box">
                 {% for news in bestpick_news %}
-                <div class="card shadow p-3 mb-5 bg-white rounded col-lg-6">
+                <div class="card shadow p-3 mb-5 bg-white rounded">
                   {% if news.urlToImage != None %}
                   <img class="card-img-top" src="{{news.urlToImage}}" alt="Card image cap" loading="lazy">
                   {% endif %}
                   <div class="card-body">
-                    
                     <h1 class="card-title" style="font-size: larger; color: rgba(0, 0, 0, 0.932);">{{ news.title }}</h1>
-                    
                     <h5 class="card-title" style="font-size: medium;">by - {{ news.author }}</h5>
-                    
                     <p style="font-size: small;">{{ news.description }}</p>
-                    <a href="{{ news.url }}" class="btn btn-success" target="_blank">Read More</a>
-
+                    <a href="{{ news.url }}" class="btn btn-success">explore</a>
                   </div>
                 </div>
                 {% endfor %}
@@ -478,20 +561,18 @@
 
             <div class="swiper-slide wow fadeIn">
               <br>
-              <h2>City News ({{city}})</h2>
+              <h5>City News ({{city}})</h5>
               <div class="box">
                 {% for news in city_news %}
                 <div class="card shadow p-3 mb-5 bg-white rounded">
-
                   {% if news.urlToImage != None %}
-                  
                   <img class="card-img-top" src="{{news.urlToImage}}" alt="Card image cap" loading="lazy">
                   {% endif %}
                   <div class="card-body">
                     <h1 class="card-title" style="font-size: larger; color: rgba(0, 0, 0, 0.932);">{{ news.title }}</h1>
                     <h5 class="card-title" style="font-size: medium;">by - {{ news.author }}</h5>
                     <p style="font-size: small;">{{ news.description }}</p>
-                    <a href="city/{{ news.title }}" class="btn btn-success">Explore</a>
+                    <a href="{{ news.url }}" class="btn btn-success">explore</a>
                   </div>
                 </div>
                 {% endfor %}
@@ -500,7 +581,7 @@
 
             <div class="swiper-slide wow fadeIn" data-wow-duration="3s">
               <br>
-              <h2>State News ({{state}})</h2>
+              <h5>State News ({{state}})</h5>
               <div class="box">
                 {% for news in state_news %}
                 <div class="card shadow p-3 mb-5 bg-white rounded ">
@@ -511,7 +592,7 @@
                     <h1 class="card-title" style="font-size: larger; color: rgba(0, 0, 0, 0.932);">{{ news.title }}</h1>
                     <h5 class="card-title" style="font-size: medium;">by - {{ news.author }}</h5>
                     <p style="font-size: small;">{{ news.description }}</p>
-                    <a href="{{ news.url }}" class="btn btn-success" target="_blank">Read More</a>
+                    <a href="{{ news.url }}" class="btn btn-success">explore</a>
                   </div>
                 </div>
                 {% endfor %}
@@ -520,7 +601,7 @@
 
             <div class="swiper-slide wow fadeIn" data-wow-duration="3s">
               <br>
-              <h2>National News (India)</h2>
+              <h5>National News (India)</h5>
               <div class="box">
                 {% for news in national_news %}
                 <div class="card shadow p-3 mb-5 bg-white rounded">
@@ -531,7 +612,7 @@
                     <h1 class="card-title" style="font-size: larger; color: rgba(0, 0, 0, 0.932);">{{ news.title }}</h1>
                     <h5 class="card-title" style="font-size: medium;">by - {{ news.author }}</h5>
                     <p style="font-size: small;">{{ news.description }}</p>
-                    <a href="{{ news.url }}" class="btn btn-success" target="_blank">Read More</a>
+                    <a href="{{ news.url }}" class="btn btn-success">explore</a>
                   </div>
                 </div>
                 {% endfor %}
@@ -540,7 +621,7 @@
 
             <div class="swiper-slide wow fadeIn" data-wow-duration="3s">
               <br>
-              <h2>International News</h2>
+              <h5>International News</h5>
               <div class="box">
                 {% for news in international_news %}
                 <div class="card shadow p-3 mb-5 bg-white rounded ">
@@ -551,7 +632,7 @@
                     <h1 class="card-title" style="font-size: larger; color: rgba(0, 0, 0, 0.932);">{{ news.title }}</h1>
                     <h5 class="card-title" style="font-size: medium;">by - {{ news.author }}</h5>
                     <p style="font-size: small;">{{ news.description }}</p>
-                    <a href="{{ news.url }}" class="btn btn-success" target="_blank">Read More</a>
+                    <a href="{{ news.url }}" class="btn btn-success">explore</a>
                   </div>
                 </div>
                 {% endfor %}
@@ -560,7 +641,7 @@
 
             <div class="swiper-slide wow fadeIn" data-wow-duration="3s">
               <br>
-              <h2>Business News</h2>
+              <h5>Business News</h5>
               <div class="box">
                 {% for news in business_news %}
                 <div class="card shadow p-3 mb-5 bg-white rounded ">
@@ -571,7 +652,7 @@
                     <h1 class="card-title" style="font-size: larger; color: rgba(0, 0, 0, 0.932);">{{ news.title }}</h1>
                     <h5 class="card-title" style="font-size: medium;">by - {{ news.author }}</h5>
                     <p style="font-size: small;">{{ news.description }}</p>
-                    <a href="{{ news.url }}" class="btn btn-success" target="_blank">Read More</a>
+                    <a href="{{ news.url }}" class="btn btn-success">explore</a>
                   </div>
                 </div>
                 {% endfor %}
@@ -580,17 +661,18 @@
 
             <div class="swiper-slide wow fadeIn" data-wow-duration="3s">
               <br>
-              <h2>Sports News</h2>
+              <h5>Sport News</h5>
               <div class="box">
                 {% for news in sport_news %}
                 <div class="card shadow p-3 mb-5 bg-white rounded ">
                   <img class="card-img-top" src="{{news.urlToImage}}" alt="Card image cap"
-                    onerror="this.onerror=null;this.src='https://source.unsplash.com/1600x900/?dark,abstract';" loading="lazy">
+                    onerror="this.onerror=null;this.src='https://source.unsplash.com/1600x900/?dark,abstract';"
+                    loading="lazy">
                   <div class="card-body">
                     <h1 class="card-title" style="font-size: larger; color: rgba(0, 0, 0, 0.932);">{{ news.title }}</h1>
                     <h5 class="card-title" style="font-size: medium;">by - {{ news.author }}</h5>
                     <p style="font-size: small;">{{ news.description }}</p>
-                    <a href="{{ news.url }}" class="btn btn-success" target="_blank">Read More</a>
+                    <a href="{{ news.url }}" class="btn btn-success">explore</a>
                   </div>
                 </div>
                 {% endfor %}
@@ -599,7 +681,7 @@
 
             <div class="swiper-slide  wow fadeIn" data-wow-duration="3s">
               <br>
-              <h2>News by Indian Sources</h2>
+              <h5>News by Indian Sources</h5>
               <div class="box">
                 {% for news in indian_news %}
                 <div class="card shadow p-3 mb-5 bg-white rounded">
@@ -610,7 +692,7 @@
                     <h1 class="card-title" style="font-size: larger; color: rgba(0, 0, 0, 0.932);">{{ news.title }}</h1>
                     <h5 class="card-title" style="font-size: medium;">by - {{ news.author }}</h5>
                     <p style="font-size: small;">{{ news.description }}</p>
-                    <a href="{{ news.url }}" class="btn btn-success" target="_blank">Read More</a>
+                    <a href="{{ news.url }}" class="btn btn-success">explore</a>
                   </div>
                 </div>
                 {% endfor %}
@@ -619,7 +701,7 @@
 
             <div class="swiper-slide  wow fadeIn" data-wow-duration="3s">
               <br>
-              <h2>ShareMarket News</h2>
+              <h5>ShareMarket News</h5>
               <div class="box">
                 {% for news in sharemarket_news %}
                 <div class="card shadow p-3 mb-5 bg-white rounded">
@@ -630,7 +712,7 @@
                     <h1 class="card-title" style="font-size: larger; color: rgba(0, 0, 0, 0.932);">{{ news.title }}</h1>
                     <h5 class="card-title" style="font-size: medium;">by - {{ news.author }}</h5>
                     <p style="font-size: small;">{{ news.description }}</p>
-                    <a href="{{ news.url }}" class="btn btn-success" target="_blank">Read More</a>
+                    <a href="{{ news.url }}" class="btn btn-success">explore</a>
                   </div>
                 </div>
                 {% endfor %}
@@ -641,7 +723,6 @@
           </div>
 
         </div>
-        
         <!-- <div class="row">
           <div class="col-12" align='center'>
             <div class="card wow fadeIn" style="width: 100%;">
@@ -658,123 +739,14 @@
           </div>
         </div> -->
 
+
+
       </div>
     </section><!-- #portfolio -->
 
 
 
-    <!-- News Sources -->
 
-    <section id="sources" class="section-bg">
-      <div class="container-fluid">
-
-        <header class="section-header">
-          <h3 class="section-title wow fadeIn">Best picked Sources</h3>
-          <h4 class="section-title wow fadeIn" style="text-align: center;"> Swipe left and right </h4>
-        </header>
-
-        <div class="swiper-container mydata" align="center">
-
-          <div class="swiper-pagination" style="top: 0px; pointer-events: none;"></div>
-          <div class="swiper-wrapper">
-
-            <div class="swiper-slide wow fadeIn">
-              <br>
-              <div class="box">
-                <h2 style="text-align: center;">Regional</h2>
-                <div class="row align-items-center">
-                  <div class="col-4 col-sm-3 col-lg-4 logoss centered mx-auto"><img src="{% static 'logo/thehindu.jpg' %}"
-                      alt=""></div>
-                  <div class="col-4 col-sm-3 col-lg-4 logoss centered mx-auto"><img src="{% static 'logo/gnews.jpg' %}" alt="">
-                  </div>
-                  <div class="col-4 col-sm-3 col-lg-4 logoss centered mx-auto"><img src="{% static 'logo/toi.jpg' %}" alt="">
-                  </div>
-                </div>
-
-              </div>
-              <br>
-            </div>
-
-            <div class="swiper-slide wow fadeIn">
-              <br>
-              <div class="box">
-
-                <h2 style="text-align: center;">Bussiness</h2>
-                <div class="row align-items-center">
-                  <div class="col-4 col-lg-4 logoss centered mx-auto"><img src="{% static 'logo/bloomberg.png' %}" alt=""></div>
-                  <div class="col-4 col-lg-4 logoss centered mx-auto"><img src="{% static 'logo/buss.png' %}" alt=""></div>
-                  <div class="col-4 col-lg-4 logoss centered mx-auto"><img src="{% static 'logo/fortune.png' %}" alt=""></div>
-                </div>
-
-              </div>
-              <br>
-            </div>
-
-            <div class="swiper-slide wow fadeIn">
-              <br>
-              <div class="box">
-
-                <h2 style="text-align: center;">Sports</h2>
-                <div class="row align-items-center">
-                  <div class="col-4 col-lg-4 logoss centered mx-auto"><img src="{% static 'logo/bbcsport.png' %}" alt=""></div>
-                  <div class="col-4 col-lg-4 logoss centered mx-auto"><img src="{% static 'logo/espn.png' %}" alt=""></div>
-                  <div class="col-4 col-lg-4 logoss centered mx-auto"><img src="{% static 'logo/foxsport.png' %}" alt=""></div>
-                </div>
-
-              </div>
-              <br>
-            </div>
-
-            <div class="swiper-slide wow fadeIn">
-              <br>
-              <div class="box">
-
-                <h2 style="text-align: center;">Science/Tech</h2>
-                <div class="row align-items-center">
-                  <div class="col-3 col-lg-3 logoss centered mx-auto"><img src="{% static 'logo/natgeo.png' %}" alt=""></div>
-                  <div class="col-3 col-lg-3 logoss centered mx-auto"><img src="{% static 'logo/nextbig.png' %}" alt=""></div>
-                  <div class="col-3 col-lg-3 logoss centered mx-auto"><img src="{% static 'logo/techradar.png' %}" alt=""></div>
-                  <div class="col-3 col-lg-3 logoss centered mx-auto"><img src="{% static 'logo/newscientist.jpg' %}" alt="" width="75%;"></div>
-                </div>
-
-              </div>
-              <br>
-            </div>
-
-            <div class="swiper-slide wow fadeIn">
-              <br>
-              <div class="box">
-
-                <h2 style="text-align: center;">Entertainment</h2>
-                <div class="row align-items-center">
-                  <div class="col-6 col-lg-6 logoss centered mx-auto"><img src="{% static 'logo/mtv.png' %}" alt=""></div>
-                  <div class="col-6 col-lg-6 logoss centered mx-auto"><img src="{% static 'logo/buzzfeed.jpg' %}"
-                      alt=""></div>
-                </div>
-
-              </div>
-              <br>
-            </div>
-
-            <div class="swiper-slide wow fadeIn">
-              <br>
-              <div class="box">
-
-                <h2 style="text-align: center;">Health Care</h2>
-                <div class="row align-items-center">
-                  <div class="col-4 col-lg-4 logoss centered mx-auto"><img src="{% static 'logo/mnt.jpg' %}" alt=""></div>
-                </div>
-              </div>
-              <br>
-            </div>
-
-          </div>
-          
-        </div>
-        
-      </div>
-
-    </section>
 
     <!--==========================
       Facts Section
@@ -800,13 +772,15 @@
           </div>
 
           <div class="col-lg-4 col-4 text-center">
-            <span data-toggle="counter-up">2</span>
+            <span data-toggle="counter-up">1</span>
             <p>Hard Workers</p>
           </div>
 
         </div>
 
-        <div class="facts-img"> </div>
+        <div class="facts-img">
+          <img src="img/facts-img.png" alt="" class="img-fluid">
+        </div>
 
       </div>
     </section><!-- #facts -->
@@ -820,7 +794,7 @@
 
         <div class="section-header">
           <h3>Contact Us</h3>
-          <p>If you have any feedback, feel free to contact us or send us an Email!!</p>
+          <p>If you have any doubt please free to contact us or send us a message via form listed below!!</p>
         </div>
 
         <div class="row contact-info">
@@ -846,13 +820,12 @@
               <i class="ion-ios-email-outline"></i>
               <h3>Email</h3>
               <p><a href="mailto:aditya.morankar8@gmail.com">aditya.morankar8@gmail.com</a></p>
-              <p><a href="mailto:rishabhrathi000@gmail.com">Rishabhrathi000@gmail.com</a></p>
             </div>
           </div>
 
         </div>
 
-        <!-- <div class="form">
+        <div class="form">
           <div id="sendmessage">Your message has been sent. Thank you!</div>
           <div id="errormessage"></div>
           <form action="" method="post" role="form" class="contactForm">
@@ -880,7 +853,7 @@
             </div>
             <div class="text-center"><button type="submit">Send Message</button></div>
           </form>
-        </div> -->
+        </div>
 
       </div>
     </section><!-- #contact -->
@@ -895,13 +868,13 @@
       <div class="container">
         <div class="row">
 
-          <div class="col-6 col-lg-3 col-md-6 footer-info">
+          <div class="col-lg-3 col-md-6 footer-info">
             <h3>Daily News</h3>
             <p> We use machine learning algorithm to provide news feed which best suites your profile.
             </p>
           </div>
 
-          <!-- <div class="col-lg-3 col-md-6 footer-links">
+          <div class="col-lg-3 col-md-6 footer-links">
             <h4>Useful Links</h4>
             <ul>
               <li><i class="ion-ios-arrow-right"></i> <a href="#">Home</a></li>
@@ -910,9 +883,9 @@
               <li><i class="ion-ios-arrow-right"></i> <a href="#">Terms of service</a></li>
               <li><i class="ion-ios-arrow-right"></i> <a href="#">Privacy policy</a></li>
             </ul>
-          </div> -->
+          </div>
 
-          <div class="col-6 col-lg-3 offset-lg-6 col-md-6 footer-contact">
+          <div class="col-lg-3 col-md-6 footer-contact">
             <h4>Contact Us</h4>
             <p>
               Chitnis Nagar <br>
@@ -922,24 +895,32 @@
               <strong>Email:</strong> asmaffiliate101@gmail.com<br>
             </p>
 
-            <!-- <div class="social-links">
+            <div class="social-links">
               <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
               <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
               <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
               <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
               <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
-            </div> -->
+            </div>
 
           </div>
+
+
 
         </div>
       </div>
     </div>
 
     <div class="container">
-      <br>
-      <div class="credits" style="font-size: 25px;">
-        Designed by <a href="https://adityamorankar.herokuapp.com/" target="_blank">Aditya Morankar</a> & <a href="http://rishabhrathi.co/" target="_blank">Rishabh Rathi</a>
+
+      <div class="credits">
+        <!--
+          All the links in the footer should remain intact.
+          You can delete the links only if you purchased the pro version.
+          Licensing information: https://bootstrapmade.com/license/
+          Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=BizPage
+        -->
+        Designed by <a href="https://adityamorankar.herokuapp.com/">Aditya Morankar </a>
       </div>
     </div>
   </footer><!-- #footer -->
@@ -957,6 +938,10 @@
       // Optional parameters
       direction: 'horizontal',
       loop: true,
+
+
+
+
 
       // If we need pagination
       pagination: {
@@ -977,6 +962,8 @@
         el: '.swiper-scrollbar',
       },
     })
+
+
 
     var x = window.innerWidth
     var no_slide = undefined
@@ -1021,7 +1008,6 @@
 
   <!-- Template Main Javascript File -->
   <script src="{%static 'js/main.js' %}"></script>
-
 
 </body>
 

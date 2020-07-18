@@ -6,268 +6,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <link rel="icon" href="{% static 'img/webicon.png' %}" type="image/icon type">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    
-    <link href="{% static 'css/style.css' %}" rel="stylesheet">    
-
-    <meta name="google-signin-scope" content="profile email">
-    <meta name="google-signin-client_id" content="581410066621-rcv1glinabejgjrfgc7v2jk71udiukcl.apps.googleusercontent.com">
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
-        
     <title>Login</title>
-
-
-    <script>
-      function googleSignIn(googleUser) {
-        // Useful data for your client-side scripts:
-        var profile = googleUser.getBasicProfile();
-        console.log("ID: " + profile.getId()); // Don't send this directly to your server!
-        console.log('Full Name: ' + profile.getName());
-        console.log('Given Name: ' + profile.getGivenName());
-        console.log('Family Name: ' + profile.getFamilyName());
-        console.log("Image URL: " + profile.getImageUrl());
-        console.log("Email: " + profile.getEmail());
-
-        // The ID token you need to pass to your backend:
-        var id_token = googleUser.getAuthResponse().id_token;
-        console.log("ID Token: " + id_token);
-      }
-
-      function googleSignOut() {
-        var auth2 = gapi.auth2.getAuthInstance();
-        auth2.googleSignOut().then(function () {
-          console.log('User signed out.');
-        });
-      }
-      
-    </script>
-
-    <style type="text/css">
-    	
-    	* {
-			margin: 0px;
-			padding: 0px;
-			background-origin: padding-box;
-		}
-
-		body {
-            background-color: #fafafa;
-            max-width: 100%;
-        }
-
-        .main {
-            max-width: 90%;
-            margin: 0 auto;
-            margin-top: 2%;
-            margin-bottom: 5%;
-        }
-
-    	.heading {
-    		font-weight: 600;
-    		font-size: 300%;
-    	}
-
-    	.sub-heading {
-    		font-size: 150%;
-    	}
-
-    	.lead {
-    		font-weight: 400;
-    	}
-
-    	.loginform { 
-			text-align: center;
-			margin: 0 auto;
-			background-color: white;
-			border: 1px solid rgba(var(--b6a,219,219,219),1);
-			border-radius: 2px;
-		}
-
-		label {
-			/*display: none;*/
-		}
-
-		img {
-			max-width:100%;
-    		height:auto;
-		}
-
-		input[type=text], input[type=password] { 
-			width: 70%; 
-			margin: 8px 0; 
-			display: inline-block; 
-			border: 1px solid #ccc; 
-			box-sizing: border-box; 
-		} 
-		
-		input[type=submit] { 
-			background-color: green; 
-			color: white; 
-			padding: 10px 2px; 
-			margin: 8px 0 15px 14%;
-			border: none; 
-			border-radius: 4px;
-			cursor: pointer; 
-			width: 30%;
-			font-weight: bold;
-			font-size: 15px;
-			float: left;
-		}
-
-		.abcRioButton {
-			margin: 10px 0 15px 10%;
-			float: left;
-			border-radius: 4px;
-		}
-
-		h6 {
-		   width: 100%; 
-		   text-align: center; 
-		   border-bottom: 1px solid #000; 
-		   line-height: 0.1em;
-		   margin: 10px 0 20px; 
-		} 
-
-		h6 span { 
-		    background:#fff; 
-		    padding:0 10px; 
-		}
-
-    </style>
-
-
 </head>
 
 <body>
 
-	<div class="container main">
-		<div class="row">
-			<div class="col-sm-7">
+    <div class="jumbotron jumbotron-fluid" style="background-color: rgba(0, 0, 0, 0.897); color: white;">
+        <div class="container">
+            <h6 class="display-4" style="font-weight: 600; text-align: center; font-size: 30px;">Welcome to Daily News!!
+            </h6>
+            <br>
+            <p class="lead">We will provide you personalized news feed using Machine Learning and Artificial
+                Intelligence.
+                <br><br> We try to enhance your user experience with no ads and spams.
+                <br><br> Base on your valuable information and feedback we cluster your news feed in various category to
+                save your precious time, and ensure all the latest news are being shown.
+            </p>
+        </div>
+    </div>
 
-				<div class="jumbotron text-center">
-					<h1 class="heading"> Welcome to Daily News!! </h1>
-					<p class="sub-heading">News Personalized Just For You!</p>
-				</div>
 
-				<p class="lead">
-					We will provide you personalized news feed using Machine Learning and Artificial Intelligence.
-	                <br><br> We try to enhance your user experience with no ads and spams.
-	                <br><br> Based on your valuable information and feedback we cluster your news feed in various category to save your precious time and ensure all the latest news are being shown.
-                </p>
 
-                {% if messages %}
-		        {% for message in messages %}
-		        <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
-		            {{ message }}
-		            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-		                <span aria-hidden="true">&times;</span>
-		            </button>
-		        </div>
-		        {% endfor %}
-		        {% endif %}
 
-			</div>
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    {% endfor %}
+    {% endif %}
 
-			<div class="col-sm-1"></div>
 
-			<div class="col-sm-4 loginform">
-				
-				<img class="card-title" src="{% static 'img/logo.png' %}">
-                
-                <h2>Login</h2>
+
+    <div class="container">
+        <div class="card" style="width: 100%;">
+            <div class="card-body">
+
+                <h5 class="card-title">Login And Get Started</h5>
                 <br>
+
                 <form action="" method="post">
-                    
                     {% csrf_token %}
-
-                    {{ form | crispy }}
-              
-                    <div class="buttons">
-
-	                    <input type="submit" class="btn btn-success" value="Login">
-	                    <div class="g-signin2" data-onsuccess="googleSignIn" data-theme="dark"></div>
-
-	                </div>
-                	
-                	<div style="clear: both;">	</div>
-
+                    {{form|crispy}}
+                    <br>
+                    <button type="submit" class="btn btn-success" style="margin: auto;">Login</button>
                 </form>
                 <br>
-
-                <h6><span>OR</span></h6><br>
-
-                <h5 class="card-title">Don't have an account? 
-                    <span> 
-                        <a href="register/">Sign Up</a> 
-                    </span> 
-                </h5>
-				<br>
-
-			</div>
-
-		</div>
-	</div>
-
-
-	<footer id="footer">
-        <div class="footer-top">
-            <div class="container">
-                <div class="row">
-
-                    <div class="col-lg-3 col-md-6 footer-info">
-                        <h3>Daily News</h3>
-                        <p> We use machine learning algorithm to provide news feed which best suites your profile.</p>
-                    </div>
-
-                    <div class="col-lg-3 offset-md-6 col-md-6 footer-contact" style="float: right;">
-                        <h4>Contact Us</h4>
-                        <p>
-                            Chitnis Nagar <br>
-                            Ramnamaroti Road Nagpur<br>
-                            India <br>
-                            <strong>Phone:</strong> +91 9834312906<br>
-                            <strong>Email:</strong> asmaffiliate101@gmail.com<br>
-                        </p>
-
-                        <!-- <div class="social-links">
-                          <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-                          <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-                          <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
-                          <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
-                          <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
-                      </div> -->
-
-                    </div>
-
-                </div>
+                <h5 class="card-title">Dont Have an account ? <span style="font-size: larger;"> <a
+                            href="register/">Register</a> </span> </h5>
             </div>
+
+
         </div>
 
-        <div class="container">
-            <br>
-            <div class="credits" style="font-size: 25px;">
-                Designed by <a href="https://adityamorankar.herokuapp.com/" target="_blank">Aditya Morankar</a> & <a href="http://rishabhrathi.co/" target="_blank">Rishabh Rathi</a>
-            </div>
-        
-        </div>
-    
-    </footer><!-- #footer -->
 
-
-    <script src="{% static 'lib/wow/wow.min.js' %}"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-        crossorigin="anonymous"></script>
-
+        <script src="{% static 'lib/wow/wow.min.js' %}"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+            integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+            crossorigin="anonymous"></script>
 </body>
 
 </html>

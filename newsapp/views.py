@@ -91,7 +91,7 @@ def register1(request):
         if form.is_valid():
             name = request.POST['name']
             username = request.POST['username']
-            email = requests.POST['email']
+            email = request.POST['email']
             age = request.POST['age']
             state = request.POST['state']
             city = request.POST['city']

@@ -19,10 +19,10 @@ from newsapp import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    
     path('', views.login1, name='login1'),
     path('register/', views.register1, name='register'),
     path('news/',views.main, name='main'),
     path('logout/', views.logout1, name='logout1'),
-    path('search/', views.search, name='search'),
-    path('news/<keyword>/<title>', views.getnews, name='getnews')
+    path('search/', views.search, name='search')
 ]
